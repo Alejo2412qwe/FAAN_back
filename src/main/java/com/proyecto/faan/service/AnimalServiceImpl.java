@@ -7,6 +7,8 @@ import com.proyecto.faan.repository.AnimalRepository;
 import com.proyecto.faan.repository.generic.GenericRepository;
 import com.proyecto.faan.service.generic.GenericServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,5 +19,10 @@ public class AnimalServiceImpl extends GenericServiceImpl<Animal, Integer> imple
     @Override
     public GenericRepository<Animal, Integer> getDao() {
         return animalRepository;
+    }
+
+    @Override
+    public Page<Animal> findByNombreAnimalOrPlacaAnimal(String filter, Pageable pageable) {
+        return animalRepository.findByNombreAnimalOrPlacaAnimal(filter, filter, pageable);
     }
 }
