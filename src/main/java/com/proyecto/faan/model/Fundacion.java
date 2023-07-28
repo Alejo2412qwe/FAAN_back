@@ -41,6 +41,12 @@ public class Fundacion {
     @Column(name = "horarios")
     private String horarios;
 
+    @Column(name = "acronimo")
+    private String acronimo;
+
+    @Column(name = "logoFundacion")
+    private String logoFundacion;
+
     // REFERENCE
     @JsonIgnore
     @OneToMany(mappedBy = "fundacion")

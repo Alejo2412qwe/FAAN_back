@@ -18,7 +18,7 @@ public class RazaAnimal implements Serializable {
     @Column(name = "idRazaAnimal")
     private Integer idRazaAnimal;
 
-    @Column(name = "nombreRaza")
+    @Column(name = "nombreRaza", unique = true)
     private String nombreRaza;
 
     @Column(name = "estadoRaza")

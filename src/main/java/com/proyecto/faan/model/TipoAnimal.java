@@ -18,8 +18,11 @@ public class TipoAnimal implements Serializable {
     @Column(name = "idTipoAnimal")
     private Integer idTipoAnimal;
 
-    @Column(name = "nombreTipo")
+    @Column(name = "nombreTipo", unique = true)
     private String nombreTipo;
+
+    @Column(name = "descripcionAnimal")
+    private String descripcionAnimal;
 
     @Column(name = "estadoTipo")
     private String estadoTipo;

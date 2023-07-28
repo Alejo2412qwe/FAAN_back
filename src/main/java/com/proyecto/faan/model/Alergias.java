@@ -27,8 +27,6 @@ public class Alergias {
     @Column(name = "idAlergias")
     private Integer idAlergias;
 
-
-
     @Column(name = "fechaDeteccion")
     private LocalDate fechaDeteccion;
 

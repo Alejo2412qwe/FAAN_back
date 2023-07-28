@@ -19,6 +19,9 @@ public class Animal implements Serializable {
     @Column(name = "idAnimal")
     private Integer idAnimal;
 
+    @Column(name = "placaAnimal", unique = true)
+    private String placaAnimal;
+
     @Column(name = "nombreAnimal", length = 255)
     private String nombreAnimal;
 
@@ -48,7 +51,6 @@ public class Animal implements Serializable {
     @ManyToOne
     @JoinColumn(name = "idFudacion", referencedColumnName = "idFudacion")
     private Fundacion fundacion;
-
 
 
     // REFERENCE

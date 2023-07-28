@@ -1,13 +1,11 @@
 package com.proyecto.faan.controller.Generic;
 
 import com.proyecto.faan.service.generic.GenericService;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.io.Serializable;
 import java.util.List;
 
@@ -52,9 +50,12 @@ public abstract class GenericControllerImpl <T, ID extends Serializable> impleme
 
     @Override
     @PostMapping("/save")
-    public ResponseEntity<T> save(T entity) {
+    public ResponseEntity<?> save(T entity) {
         try {
             return new ResponseEntity<>(getService().save(entity) ,HttpStatus.CREATED);
+        }catch (DataIntegrityViolationException e){
+            System.out.println("-> "+e.getCause());
+            return new ResponseEntity<>("El identificador no se puede repetir.",HttpStatus.BAD_REQUEST);
         }catch (Exception e){
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -75,7 +76,7 @@ public abstract class GenericControllerImpl <T, ID extends Serializable> impleme
         }
     }
 
-    @Override
+   /* @Override
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(ID id) {
         try {
@@ -84,6 +85,18 @@ public abstract class GenericControllerImpl <T, ID extends Serializable> impleme
         }catch (Exception e){
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-    }
+    }*/
 }
 
+
+
+
+/* if(bindingResult.hasErrors()){
+         Map<String, String> e = new HashMap<>();
+        bindingResult.getFieldErrors().forEach(er ->{
+        e.put(er.getField(),
+        "".concat(er.getField()).concat(" ").concat(er.getDefaultMessage()));
+
+        });
+        return new ResponseEntity<>(e, HttpStatus.BAD_REQUEST);
+        }*/
