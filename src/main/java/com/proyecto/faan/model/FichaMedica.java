@@ -2,6 +2,7 @@ package com.proyecto.faan.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +21,7 @@ public class FichaMedica implements Serializable {
     private Integer idFichaMedica;
 
     @Column(name = "descripcionFichaMedica")
+    @NotEmpty(message = "El campo no debe estar vacio")
     private String descripcionFichaMedica;
 
     // REFERENCE
