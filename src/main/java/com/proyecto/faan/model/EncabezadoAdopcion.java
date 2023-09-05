@@ -14,6 +14,9 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
 import java.util.List;
+
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,8 +32,10 @@ public class EncabezadoAdopcion {
     private Integer idEncabezadoAdopcion;
 
     @Column(name = "fechaAdopcion")
+    @NotNull(message = "El campo no debe ser nulo")
     private LocalDate fechaAdopcion;
 
+    @NotEmpty(message = "El campo no debe estar vacio")
     @Column(name = "observacion")
     private String observacion;
 

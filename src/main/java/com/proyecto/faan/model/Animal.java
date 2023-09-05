@@ -2,6 +2,8 @@ package com.proyecto.faan.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,18 +21,24 @@ public class Animal implements Serializable {
     @Column(name = "idAnimal")
     private Integer idAnimal;
 
+    @NotEmpty(message = "El campo no debe estar vacio")
     @Column(name = "placaAnimal", unique = true)
     private String placaAnimal;
 
+    @NotEmpty(message = "El campo no debe estar vacio")
+    @Pattern(regexp = "^[a-zA-Z]+$", message = "El campo debe contener solo letras")
     @Column(name = "nombreAnimal", length = 255)
     private String nombreAnimal;
 
+    @NotEmpty(message = "El campo no debe estar vacio")
     @Column(name = "fotoAnimal")
     private String fotoAnimal;
 
+    @NotEmpty(message = "El campo no debe estar vacio")
     @Column(name = "edadAnimal")
     private Integer edadAnimal;
 
+    @NotEmpty(message = "El campo no debe estar vacio")
     @Column(name = "estadoAnimal")
     private String estadoAnimal;
 

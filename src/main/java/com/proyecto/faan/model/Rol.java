@@ -1,5 +1,7 @@
 package com.proyecto.faan.model;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +19,8 @@ public class Rol {
     private Integer idRol;
 
     @Column(name = "nombreRol")
+    @NotEmpty(message = "El campo no debe estar vacio")
+    @Pattern(regexp = "^[a-zA-Z]+$", message = "El campo debe contener solo letras")
     private String nombreRol;
 
     @Column(name = "estadoRolActivo")

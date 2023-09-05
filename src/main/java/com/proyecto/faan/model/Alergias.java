@@ -9,6 +9,10 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.List;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,8 +32,10 @@ public class Alergias {
     private Integer idAlergias;
 
     @Column(name = "fechaDeteccion")
+    @NotNull(message = "El campo no debe ser nulo")
     private LocalDate fechaDeteccion;
 
+    @NotEmpty(message = "El campo no debe estar vacio")
     @Column(name = "observacion")
     private String observacion;
 

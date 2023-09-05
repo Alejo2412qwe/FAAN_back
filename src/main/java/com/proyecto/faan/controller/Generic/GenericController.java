@@ -1,5 +1,6 @@
 package com.proyecto.faan.controller.Generic;
 
+import jakarta.validation.Valid;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -15,8 +16,8 @@ public interface GenericController <T, ID extends Serializable> {
     public ResponseEntity<?> findByAll(@PageableDefault(page = 0, size = 3, direction = Sort.Direction.ASC) Pageable pageable);
 
     public ResponseEntity<T> findByOne(@PathVariable ID id);
-    public ResponseEntity<?> save(@RequestBody T entity);
-    public ResponseEntity<T> update(@PathVariable ID id, @RequestBody T entity);
+    public ResponseEntity<?> save(@Valid @RequestBody T entity);
+    public ResponseEntity<T> update(@Valid @PathVariable ID id, @RequestBody T entity);
    // public ResponseEntity<?> delete(@PathVariable ID id);
 }
 

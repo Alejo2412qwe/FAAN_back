@@ -26,6 +26,7 @@ public class Usuario implements Serializable {
     private String username;
 
     @Column(name = "password")
+    @NotBlank(message = "El campo noo debe estar vacio")
     private String password;
 
     @Column(name = "fotoPerfil")
