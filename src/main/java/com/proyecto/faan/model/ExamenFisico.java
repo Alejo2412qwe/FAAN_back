@@ -8,6 +8,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -33,34 +34,34 @@ public class ExamenFisico {
     private LocalDate fechaRevisionFisisca;
 
     @Column(name = "peso")
-    @NotEmpty(message = "El campo no debe estar vacio")
+    @NotBlank(message = "El campo no debe estar vacio")
     private Double peso;
 
-    @NotEmpty(message = "El campo no debe estar vacio")
+    @NotBlank(message = "El campo no debe estar vacio")
     @Column(name = "frecuenciaCardiaca")
     private Double frecuenciaCardiaca;
 
-    @NotEmpty(message = "El campo no debe estar vacio")
+    @NotBlank(message = "El campo no debe estar vacio")
     @Column(name = "mucosa")
     private String mucosa;
 
-    @NotEmpty(message = "El campo no debe estar vacio")
+    @NotBlank(message = "El campo no debe estar vacio")
     @Column(name = "ojosrojos")
     private String ojosrojos;
 
-    @NotEmpty(message = "El campo no debe estar vacio")
+    @NotBlank(message = "El campo no debe estar vacio")
     @Column(name = "piel")
     private String piel;
 
-    @NotEmpty(message = "El campo no debe estar vacio")
+    @NotBlank(message = "El campo no debe estar vacio")
     @Column(name = "sistemaUrinario")
     private String sistemaUrinario;
 
-    @NotEmpty(message = "El campo no debe estar vacio")
+    @NotBlank(message = "El campo no debe estar vacio")
     @Column(name = "sistemaDigestivo")
     private String sistemaDigestivo;
 
-    @NotEmpty(message = "El campo no debe estar vacio")
+    @NotBlank(message = "El campo no debe estar vacio")
     @Column(name = "abdomen")
     private String abdomen;
 

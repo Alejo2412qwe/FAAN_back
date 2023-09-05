@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,11 +32,11 @@ public class DetalleAdopcion {
     @Column(name = "idAdopcion")
     private Integer idAdopcion;
 
-    @NotEmpty(message = "El campo no debe estar vacio")
+    @NotBlank(message = "El campo no debe estar vacio")
     @Column(name = "observacion")
     private String observacion;
 
-    @NotEmpty(message = "El campo no debe estar vacio")
+    @NotBlank(message = "El campo no debe estar vacio")
     @Column(name = "documento")
     private String documento;
 

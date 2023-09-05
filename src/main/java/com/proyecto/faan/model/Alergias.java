@@ -35,7 +35,7 @@ public class Alergias {
     @NotNull(message = "El campo no debe ser nulo")
     private LocalDate fechaDeteccion;
 
-    @NotEmpty(message = "El campo no debe estar vacio")
+    @NotBlank(message = "El campo no debe estar vacio")
     @Column(name = "observacion")
     private String observacion;
 

@@ -1,6 +1,7 @@
 package com.proyecto.faan.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,11 +22,11 @@ public class Tratamiento {
     private LocalDate fechaTratamiento;
 
     @Column(name = "observaciones")
-    @NotEmpty(message = "El campo no debe estar vacio")
+    @NotBlank(message = "El campo no debe estar vacio")
     private String observaciones;
 
     @Column(name = "estadoTratamiento")
-    @NotEmpty(message = "El campo no debe estar vacio")
+    @NotBlank(message = "El campo no debe estar vacio")
     private String estadoTratamiento;
 
     // RELATIONSHIP

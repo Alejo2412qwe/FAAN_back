@@ -15,6 +15,7 @@ import jakarta.persistence.Table;
 import java.time.LocalDate;
 import java.util.List;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -35,7 +36,7 @@ public class EncabezadoAdopcion {
     @NotNull(message = "El campo no debe ser nulo")
     private LocalDate fechaAdopcion;
 
-    @NotEmpty(message = "El campo no debe estar vacio")
+    @NotBlank(message = "El campo no debe estar vacio")
     @Column(name = "observacion")
     private String observacion;
 

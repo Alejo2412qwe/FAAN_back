@@ -6,6 +6,7 @@ package com.proyecto.faan.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
@@ -29,7 +30,7 @@ public class TipoAlergias {
     private Integer idTipoAlergia;
 
     @Column(name = "nombreAlergia")
-    @NotEmpty(message = "El campo no debe estar vacio")
+    @NotBlank(message = "El campo no debe estar vacio")
     @Pattern(regexp = "^[a-zA-Z]+$", message = "El campo debe contener solo letras")
     private String nombreAlergia;
 
